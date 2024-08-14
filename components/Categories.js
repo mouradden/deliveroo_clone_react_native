@@ -30,11 +30,6 @@ const Categories = () => {
         ))
 
       }
-      {/* <CardCategory imgUrl='https://links.papareact.com/gn7' title='test2' />
-      <CardCategory imgUrl='https://links.papareact.com/wru' title='test3' />
-      <CardCategory imgUrl='https://links.papareact.com/wru' title='test4' />
-      <CardCategory imgUrl='https://reactjs.org/logo-og.png' title='test1' />
-      <CardCategory imgUrl='https://links.papareact.com/wru' title='test4' /> */}
     </ScrollView>
   );
 };

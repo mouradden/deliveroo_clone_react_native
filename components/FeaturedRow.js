@@ -41,6 +41,7 @@ const FeaturedRow = ({ id, title, description }) => {
            showsHorizontalScrollIndicator={false}
            className='flex-row'
         >
+          
           {
             restaurants?.map((restaurant) =>  
                 <RestaurantCard 
