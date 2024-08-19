@@ -1,67 +1,35 @@
 import { useNavigation } from '@react-navigation/native'
-import { View, TouchableOpacity, TextInput, Alert } from 'react-native'
-import React from 'react'
-import { XCircleIcon } from 'react-native-heroicons/outline/'
-// const PreparingOrderScreen = () => {
-//   return (
-//     <View>
-//       <Text>PreparingOrderScreen</Text>
-//     </View>
-//   )
-// }
+import { Image, SafeAreaView, Text } from 'react-native'
+import React, { useEffect } from 'react'
+import * as Animatable from 'react-native-animatable'
+import * as Progress from 'react-native-progress'
 
-// export default PreparingOrderScreen
+
 const PreparingOrderScreen = () => {
   const navigation = useNavigation();
-  const [text, setText] = React.useState('');
-  const hasUnsavedChanges = Boolean(text);
 
-  React.useEffect(
-    () =>
-      navigation.addListener('beforeRemove', (e) => {
-        if (!hasUnsavedChanges) {
-          // If we don't have unsaved changes, then we don't need to do anything
-          return;
-        }
-
-        // Prevent default behavior of leaving the screen
-        e.preventDefault();
-
-        // Prompt the user before leaving the screen
-        Alert.alert(
-          'Discard changes?',
-          'You have unsaved changes. Are you sure to discard them and leave the screen?',
-          [
-            { text: "Don't leave", style: 'cancel', onPress: () => {} },
-            {
-              text: 'Discard',
-              style: 'destructive',
-              // If the user confirmed, then we dispatch the action we blocked earlier
-              // This will continue the action that had triggered the removal of the screen
-              onPress: () => navigation.dispatch(e.data.action),
-            },
-          ]
-        );
-      }),
-    [navigation, hasUnsavedChanges]
-  );
-
+  useEffect(()=>{
+    setTimeout(()=>{
+      navigation.navigate("Delivery");
+    }, 4000);
+  }, []);
   return (
-    <View>
-      <TextInput
-        value={text}
-        placeholder="Type something…"
-        onChangeText={setText}
-        className='border p-4'
+    <SafeAreaView className='bg-[#00CCBB] flex-1 justify-center items-center'>
+      <Image 
+        className='h-96 w-96'
+        source={require("../assets/images/loading.webp")}
+        animation="slideInUp"
       />
+      <Animatable.Text
+        animation="slideInUp"
+        className='text-lg text-white font-bold my-10 text-center'
+      >
+        Waiting for the restaurant to accept your order!
+      </Animatable.Text>
 
-      <TouchableOpacity className='absolute right-0'
-            onPress={navigation.goBack}
-        >
-            <XCircleIcon size={48} color="white" fill="#00CCBB"/>
-      </TouchableOpacity>
-    </View>
-  );
+      <Progress.Circle size={30} indeterminate={true} />
+    </SafeAreaView>
+  )
 }
 
-export default PreparingOrderScreen;
+export default PreparingOrderScreen
