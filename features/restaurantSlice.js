@@ -26,9 +26,5 @@ export const { setRestaurant } = restaurantSlice.actions;
 
 export const selectRestaurant = (state) => state.restaurant.restaurant;
 
-// export const selectBasketItemsWithId = (state, id) => state.basket.items.filter((item) => id == item.id)
-
-// export const selectBasketTotal = (state) => 
-//     state.basket.items.reduce((total, item) => total += item.price, 0);
 
 export default restaurantSlice.reducer;
