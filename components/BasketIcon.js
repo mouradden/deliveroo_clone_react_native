@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
-import { selectBasketItems, selectBasketTotal } from '@/features/basketSlice'
+import { selectBasketItems, selectBasketTotal } from '../features/basketSlice'
 
 const BasketIcon = () => {
   const navigation = useNavigation();
@@ -11,7 +11,7 @@ const BasketIcon = () => {
   if (items.length == 0)  return null;
   
   return (
-    <View className='absolute bottom-0 w-full flex justify-center items-center'>
+    <View className='absolute bottom-10 w-full items-center'>
         <TouchableOpacity 
           className='flex-row justify-around mb-8 rounded items-center w-80 h-16 bg-[#00CCBB]'
           onPress={()=>{

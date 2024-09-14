@@ -68,29 +68,33 @@ function HomeScreen() {
         <AdjustmentsVerticalIcon color="#00CCBB" fill="white" size={25}/>
       </View>
 
-      {/* categories */}
-      <ScrollView 
-        className='bg-gray-100 px-2'
-        contentContainerStyle={{paddingBottom:10}}
+      <ScrollView
+        contentContainerStyle={{ paddingTop: 10, paddingButtom: 10  }}
       >
-        <Categories />
-      </ScrollView>
+        {/* categories */}
+        <ScrollView 
+          className='bg-gray-100 px-2'
+          contentContainerStyle={{paddingBottom:10}}
+        >
+          <Categories />
+        </ScrollView>
 
-      {/* FeaturedRow */}
-      <View className='flex-col px-4'>
-        {
-          featuredCategories?.map((category) =>(
-            <FeaturedRow 
-              key={category._id} 
-              id={category._id} 
-              title={category.name} 
-              description={category.short_description} 
-              /> 
-            
-          ))
-        }
-       
-      </View>
+        {/* FeaturedRow */}
+        <View className='flex-col px-4'>
+          {
+            featuredCategories?.map((category) =>(
+              <FeaturedRow 
+                key={category._id} 
+                id={category._id} 
+                title={category.name} 
+                description={category.short_description} 
+                /> 
+              
+            ))
+          }
+        
+        </View>
+        </ScrollView>
       </SafeAreaView>
     )
 }

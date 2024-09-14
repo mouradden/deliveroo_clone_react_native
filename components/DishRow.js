@@ -18,7 +18,7 @@ const DishRow = ({ id, name, description, price, image}) => {
         dispatch(removeFromBasket({ id }));
     }
   return (
-    <>
+    <View>
         <TouchableOpacity
             onPress={()=>{setIsPressed(!isPressed)}}
             className=' '
@@ -57,7 +57,7 @@ const DishRow = ({ id, name, description, price, image}) => {
                 </View>
             )
         }
-    </>
+    </View>
   )
 }
 

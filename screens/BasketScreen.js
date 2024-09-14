@@ -1,9 +1,9 @@
 import { View, Text, TouchableOpacity, SafeAreaView, ScrollView, Image, Button } from 'react-native'
-import { selectBasketItems, selectBasketTotal } from '@/features/basketSlice'
+import { selectBasketItems, selectBasketTotal } from '../features/basketSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { XCircleIcon } from 'react-native-heroicons/outline/'
 import { useNavigation } from '@react-navigation/native'
-import { setRestaurant } from '@/features/restaurantSlice'
+import { setRestaurant } from '../features/restaurantSlice'
 import { useEffect, useState } from 'react'
 import { selectRestaurant } from '../features/restaurantSlice'
 import { urlFor } from '../sanity'
@@ -26,11 +26,11 @@ const BasketScreen = () => {
         setGroupedItemsInBasket(groupedItems);
     }, [items]);
 
-    console.log(groupedItemsInBasket);
+    //console.log(groupedItemsInBasket);
   return (
     <SafeAreaView className='flex-1'>
         <View className='flex-1'>
-            <View className=' p-2 items-center flex-row bg-white'>
+            <View className='p-2 items-center flex-row bg-white'>
                 <View className='flex-1 items-center'>
                     <Text className='text-xl font-bold'>Basket</Text>
                     <Text className='text-gray-400 p-2'>{restaurant.title}</Text>
@@ -60,7 +60,7 @@ const BasketScreen = () => {
                                 className='p-4 mt-2 bg-white px-6 flex-row items-center space-x-6'    
                             >
                                 <View className='flex-row items-center space-x-4 flex-1 '>
-                                    <Text style={{ whiteSpace: 'nowrap' }}>{items.length} x</Text>
+                                    <Text>{items.length} x</Text>
                                     <Image 
                                         source={{ uri: urlFor(items[0]?.image).url() }}
                                         className='w-11 h-11 border border-black rounded-full'

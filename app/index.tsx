@@ -26,4 +26,4 @@ function Index() {
     
   );
 }
-export default withExpoSnack(Index);
+export default (Index);

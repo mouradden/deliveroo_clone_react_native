@@ -4,15 +4,15 @@ import { XMarkIcon } from 'react-native-heroicons/outline/'
 import { useNavigation } from '@react-navigation/native'
 import * as Progress from 'react-native-progress'
 import { useSelector } from 'react-redux'
-import { selectRestaurant } from '@/features/restaurantSlice'
-import Map from 'react-map-gl';
+import { selectRestaurant } from '../features/restaurantSlice'
+import MapView, { Marker } from 'react-native-maps';
 
 const DeliveryScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
 
   return (
-    <SafeAreaView className='flex-1  bg-[#00CCBB] '>
+    <SafeAreaView className='flex-1 bg-[#00CCBB] '>
       <SafeAreaView className='z-50'>
         <View className="flex-row pb-24 items-center p-4">
           <TouchableOpacity 
@@ -51,44 +51,41 @@ const DeliveryScreen = () => {
         </View>
       </SafeAreaView>
       <View className='items-center flex-1 bg-white'>
-        <Text>A map to be displied here soon</Text>
-      {/* <Map
-        mapLib={import('mapbox-gl')}
-        initialViewState={{
-          longitude: -122.4324,
-          latitude: 37.78825,
-          zoom: 3.5
-        }}
-        className='w-96 h-96 flex-1 border'
-        mapStyle="mapbox://styles/mapbox/streets-v9"
-      /> */}
-        {/* <MapView
+        <MapView
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
+            latitude: 35.650519,
+            longitude:  -5.305926,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-          className='flex-1 mt-4 z-0'
-          mapType='mutedStandard'
+          className='flex-1 h-full w-full'
+          mapType="mutedStandard "
         >
-        </MapView> */}
+          <Marker 
+            coordinate={{
+              latitude: 35.650519,
+              longitude:  -5.305926
+            }}
+          />
+        </MapView>
       </View>
-      <SafeAreaView className='flex-row  space-x-4 items-center bg-white p-4'>
-            <Image 
-              source={{
-                uri: "https://links.papareact.com/wru"
-              }}
-              className='w-12 h-12 bg-gray-400 rounded-full p-4'
-            />
-            <View className='flex-1'>
-              <Text className='text-lg'>Mourad DENGUIR</Text>
-              <Text className='text-gray-400'>Your order</Text>
-            </View>
-          <TouchableOpacity >
-            <Text className='text-[#00CCBB] font-bold text-lg'>Call</Text>
-          </TouchableOpacity>
-      </SafeAreaView>
+      {/* <SafeAreaView> */}
+        <View className='flex-row items-center bg-white p-4 space-x-4'>
+              <Image 
+                source={{
+                  uri: "https://links.papareact.com/wru"
+                }}
+                className='w-12 h-12 bg-gray-400 rounded-full p-4'
+              />
+              <View className='flex-1'>
+                <Text className='text-lg'>Mourad DENGUIR</Text>
+                <Text className='text-gray-400'>Your order</Text>
+              </View>
+            <TouchableOpacity >
+              <Text className='text-[#00CCBB] font-bold text-lg'>Call</Text>
+            </TouchableOpacity>
+        </View>
+      {/* </SafeAreaView> */}
     </SafeAreaView>
   )
 }
