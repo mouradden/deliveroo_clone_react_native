@@ -36,18 +36,22 @@ useEffect(() => {
           source={{ uri: urlFor(imgUrl).url() }}
           className='w-100 h-64'
         />
-        <Text className='p-4 text-3xl font-bold'>{title}</Text>
+        <View className='flex-row justify-between'>
+          <Text className='p-4 text-3xl font-bold capitalize'>{title}</Text>
+          <View className='flex-row space-x-4 items-center pr-4'>
+              <Text className='text-lg text-gray-400 capitalize bg-gray-200 rounded p-2'>{genre}</Text>
+              <View className='flex-row space-x-2 items-center bg-gray-200 rounded p-2'>
+                <Text className='text-lg text-green-600'>{rating}</Text>
+                <StarIcon size={20} color='#00CCBB' fill="#00CCBB"/>
+              </View>
+              {/* <Text className='text-lg text-gray-400'>*</Text> */}
+          </View>
+        </View>
 
         <View className='flex-col pl-4 space-y-2'>
-          <View className='flex-row space-x-2 items-center'>
-              <StarIcon size={22} fill="#00CCBB"/>
-              <Text className='text-green-400'>{rating}</Text>
-              <Text className='text-gray-400'>*</Text>
-              <Text className='text-gray-400'>{genre}</Text>
-          </View>
           <View className='flex-row items-center space-x-4 text-gray-500'>
               <MapPinIcon />
-              <Text className='text-gray-400'>{address}</Text>
+              <Text className='text-gray-400 capitalize'>{address}</Text>
           </View>
       </View>
       <View className='p-4'>
@@ -63,18 +67,6 @@ useEffect(() => {
       <View className='pb-24'>
         <Text className='text-xl font-bold bg-gray-200 p-4'>Menu</Text>
         <ScrollView>
-          {
-            dishes?.map((dish)=>(
-              <DishRow 
-                key={dish._id}
-                id={dish._id}
-                name={dish.name}
-                description={dish.short_description}
-                price={dish.price}
-                image={dish.image}
-              />
-            ))
-          }
           {
             dishes?.map((dish)=>(
               <DishRow 

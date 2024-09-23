@@ -1,3 +1,10 @@
+<img src='assets/images/deploy/1.png'>
+<img src='assets/images/deploy/2.png'>
+<img src='assets/images/deploy/3.png'>
+<img src='assets/images/deploy/4.png'>
+<img src='assets/images/deploy/5.png'>
+
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).

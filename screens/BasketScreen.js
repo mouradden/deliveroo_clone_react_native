@@ -7,6 +7,7 @@ import { setRestaurant } from '../features/restaurantSlice'
 import { useEffect, useState } from 'react'
 import { selectRestaurant } from '../features/restaurantSlice'
 import { urlFor } from '../sanity'
+import { removeGroupFromBasket } from '../features/basketSlice';
 
 
 const BasketScreen = () => {
@@ -26,7 +27,11 @@ const BasketScreen = () => {
         setGroupedItemsInBasket(groupedItems);
     }, [items]);
 
-    //console.log(groupedItemsInBasket);
+    const removeFromBasket = (title) => {
+        if (!items.length) return;
+        dispatch(removeGroupFromBasket({ title }));
+    };
+      
   return (
     <SafeAreaView className='flex-1'>
         <View className='flex-1'>
@@ -69,7 +74,11 @@ const BasketScreen = () => {
                                 </View>
                                 
                                     <Text>{items[0]?.price} MAD</Text>
-                                    <Text className='text-[#00CCBB]'>Remove</Text>
+                                    <TouchableOpacity 
+                                        onPress={() => removeFromBasket(items[0]?.name)}
+                                    >
+                                        <Text className='text-[#00CCBB]'>Remove</Text>
+                                    </TouchableOpacity>
                             </View>
                         ))
                     }

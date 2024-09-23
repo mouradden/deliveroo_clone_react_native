@@ -49,7 +49,7 @@ const RestaurantCard = ({
         </View>
         <View className='flex-row items-center space-x-2 text-gray-500'>
             <MapPinIcon />
-            <Text className='text-gray-400'>{address}</Text>
+            <Text className='text-gray-400 w-32'>{address}</Text>
         </View>
     </View>
     </TouchableOpacity>

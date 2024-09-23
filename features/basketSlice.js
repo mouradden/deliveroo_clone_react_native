@@ -25,10 +25,14 @@ const basketSlice = createSlice({
         console.warn(`cant remove product ${action.payload.id} as its not in basket`);
       }
     },
+    removeGroupFromBasket: (state, action) => {
+      const newBasket = state.items.filter((item) => item.name != action.payload.title);
+      state.items = newBasket;
+    },
   }
 })
 
-export const { addToBasket, removeFromBasket } = basketSlice.actions;
+export const { addToBasket, removeFromBasket, removeGroupFromBasket} = basketSlice.actions;
 
 
 export const selectBasketItems = (state) => state.basket.items;

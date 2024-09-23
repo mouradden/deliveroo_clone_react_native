@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { urlFor } from '../sanity';
 import {PlusCircleIcon, MinusCircleIcon} from 'react-native-heroicons/outline/'
 import { useDispatch, useSelector } from 'react-redux';
-import { addToBasket, removeFromBasket, selectBasketItems, selectBasketItemsWithId } from '../features/basketSlice';
+import { addToBasket, removeFromBasket, selectBasketItemsWithId } from '../features/basketSlice';
 
 const DishRow = ({ id, name, description, price, image}) => {
     const [isPressed, setIsPressed] = useState(false);
@@ -17,11 +17,12 @@ const DishRow = ({ id, name, description, price, image}) => {
         if (!items.length) return;
         dispatch(removeFromBasket({ id }));
     }
+    
   return (
     <View>
         <TouchableOpacity
             onPress={()=>{setIsPressed(!isPressed)}}
-            className=' '
+            className=''
         >
             <View key={id} className='flex-row p-4 bg-white'>
                 <View className='flex-1 space-y-2'>

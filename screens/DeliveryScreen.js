@@ -12,7 +12,7 @@ const DeliveryScreen = () => {
   const restaurant = useSelector(selectRestaurant);
 
   return (
-    <SafeAreaView className='flex-1 bg-[#00CCBB] '>
+    <View className='flex-1 bg-[#00CCBB]'>
       <SafeAreaView className='z-50'>
         <View className="flex-row pb-24 items-center p-4">
           <TouchableOpacity 
@@ -30,7 +30,7 @@ const DeliveryScreen = () => {
 
           {/* <View className='bg-white absolute top-16 items-center rounded w-96 h-28'> */}
         </View>
-        <View className='bg-white mx-5 my-2 rounded-md p-6 z-50 shadow-md flex border'>
+        <View className='bg-white mx-5 rounded-md p-6 shadow-md flex border'>
           <View className='flex-row'>
             <View>
               <Text className='text-gray-400'>Estimated arrival</Text>
@@ -50,7 +50,6 @@ const DeliveryScreen = () => {
           </Text>
         </View>
       </SafeAreaView>
-      <View className='items-center flex-1 bg-white'>
         <MapView
           initialRegion={{
             latitude: 35.650519,
@@ -58,7 +57,7 @@ const DeliveryScreen = () => {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-          className='flex-1 h-full w-full'
+          className='flex-1 h-full w-full -mt-7 z-0'
           mapType="mutedStandard "
         >
           <Marker 
@@ -68,9 +67,7 @@ const DeliveryScreen = () => {
             }}
           />
         </MapView>
-      </View>
-      {/* <SafeAreaView> */}
-        <View className='flex-row items-center bg-white p-4 space-x-4'>
+        <View className='flex-row items-center bg-white p-4 pb-6 space-x-4'>
               <Image 
                 source={{
                   uri: "https://links.papareact.com/wru"
@@ -85,8 +82,8 @@ const DeliveryScreen = () => {
               <Text className='text-[#00CCBB] font-bold text-lg'>Call</Text>
             </TouchableOpacity>
         </View>
-      {/* </SafeAreaView> */}
-    </SafeAreaView>
+      {/* </View> */}
+    </View>
   )
 }
 
